@@ -1,0 +1,48 @@
+{% extends 'gsabmcc/templates/base/base.html'%}
+<!-- This is for the title at the url -->
+{% block title %} register page {% endblock%}
+<!-- This is where the content started -->
+
+<main>
+    {% block content %}
+    <section id="register-1" class="bg-light py-5">
+        <div class="container-1">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="card">
+                        <div class="card-header bg-dark text-white">
+                            <h4 class="text-center">
+                                <i class="fas fa-user-plus"></i> Register</h4>
+                        </div>
+                        <div class="card-body">
+                            {% include 'gsabmcc/templates/partial/_alert.html'%}
+                            <!-- This is the bootstrap messge error -->
+                            <form action="{% url 'register' %}" method="POST">{% csrf_token %}
+                                <div class="form-group">
+                                    <label for="first_name">First Name</label>
+                                    <input type="text" name="first_name" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="last_name">Last Name</label>
+                                    <input type="text" name="last_name" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="username">Username</label>
+                                    <input type="text" name="username" class="form-control" placeholder="your preferred name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" name="email" class="form-control" required>
+                                </div>
+
+                        </div>
+                        <input type="submit" value="Register" class="btn btn-secondary btn-block">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    {% endblock %}
+</main>

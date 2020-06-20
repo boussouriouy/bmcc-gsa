@@ -1,0 +1,32 @@
+{% extends 'gsabmcc/templates/base/base.html'%} {% load static %}
+<!-- This is for the title at the url -->
+{% block title %} event page {% endblock%}
+<!-- This is where the content started -->
+<main>
+    {% block content %}
+    <!-- This is event post -->
+    <section class="container-E">
+        {% for i in event %}
+        <!-- content -->
+        <div class="flex-box-E">
+            <h5>{{i.title }}</h5>
+            <h6>{{i.date }}</h6>
+            <img src="{{i.flyer.url}}">
+            <p>{{i.description |safe }}</p>
+            <!-- end of it -->
+        </div>
+        {% endfor %}
+    </section>
+
+    <!-- This is videos section -->
+    <h2 class="text-center"></h2>
+    <section class="container-E">
+        <div class="flex-box-E">
+            <video controls>
+              <source src="{% static 'videos/mamadou.MP4' %}" type="video/mp4">
+          </video>
+        </div>
+    </section>
+
+    {% endblock %}
+</main>

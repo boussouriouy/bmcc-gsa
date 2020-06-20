@@ -1,0 +1,68 @@
+{% extends 'gsabmcc/templates/base/base.html'%} {%load static %}
+<!-- This is for the title at the url -->
+{% block title %} home page {% endblock%}
+<!-- This is where the content started -->
+<main>
+    {% block content %}
+    <!-- This is the introduction -->
+    <section class="container">
+        <img src="{% static 'images/gsa.png' %}">
+        <h3>Guinean Students Association at Borough of Manhattan Community College(GSABMCC)</h3>
+        <p>
+            The Guinean Students Association (GSA) is an organization that aims to assist and provide resources to students in our community and empowers them through education. This organization was founded by Abdourahamane Diallo, former GSA Baruch President, in
+            spring 2016. Upon gathering a group of friends with a mutual desire to create a club that will give back to the community and help every student succeed academically and professionally.Then in 2018 this organization is implemented at Borough
+            of Manhattan Community College (BMCC) by Boubacar Bah. The mission of GSABMCC is to handle the challenges that student faced and assist them throughout their academic year to build leaders that will change the future and contribute in social
+            services throughout the community.
+        </p>
+    </section>
+
+    <!-- this is the info section -->
+    <section class="container">
+        <!-- This is the location -->
+        <div class="flex-box">
+            <h2>Location</h2>
+            <p>Murray Street<br> 70 Murray Street <br> New York, NY 10007<br>
+                <a href="https://www.google.com/maps/place/70+Murray+Street,+New+York,+NY+10007/@40.714323,-74.0130277,17z/data=!3m1!4b1!4m5!3m4!1s0x89c25a1935ebba1f:0x11acfe1202bbff7e!8m2!3d40.714323!4d-74.010839">Map</a>
+            </p>
+        </div>
+        <!-- This is the Information -->
+        <div class="flex-box">
+            <h2>Club Info</h2>
+            <p>Meeting Room: M1207<br>Day: Every Wednesday<br>Contact us at: <a href="mailto:gsaatbmcc@gmail.com">gsaatbmcc</a> <br> Meeting Time: 2pm to 4pm
+            </p>
+        </div>
+    </section>
+
+    <!-- This is event post -->
+    <h2 class="text-center">Events</h2>
+    <section class="container-E">
+
+        {% if is_present %} {% for i in events %}
+        <div class="flex-box-E">
+            <!-- content -->
+            <h5>{{i.title }}</h5>
+            <h6>{{i.date }}</h6>
+            <img src="{{i.flyer.url}}">
+            <!-- end of it -->
+        </div>
+        {% endfor %}{% else %}
+        <!-- This for order -->
+        <div class="flex-box">
+            <h5 class="alert alert-danger">Sorry we don't have any upcoming event for now</h5>
+            <a href="{% url 'event'%}"> See past events</a>
+        </div>
+        {% endif %}
+    </section>
+
+    <!-- This is the doument -->
+    <h2 class="text-center">Documents</h2>
+    <section class="container">
+        {% for i in documents %}
+        <!-- content -->
+        <h5> <a href="{{i.file.url}}" target="_blank">{{i.title }}</a></h5>
+        <!-- end of it -->
+        {% endfor %}
+        <!-- this is the end of the main block -->
+        {% endblock %}
+    </section>
+</main>

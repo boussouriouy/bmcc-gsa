@@ -1,0 +1,47 @@
+{% extends 'gsabmcc/templates/base/base.html'%}
+<!-- This is for the title at the url -->
+{% block title %} detail page {% endblock%}
+<!-- This is where the content started -->
+
+<main>
+    {% block content %}
+    <!-- This is event post -->
+    <h2 class="text-center">Member Information</h2>
+    <section class="container-D">
+        <div class="flex-box-D">
+            <img src="{{details.image.url}}"> &nbsp; &nbsp;
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Alumni</th>
+                        <th scope="col">Eboard</th>
+                        <th scope="col">Term</th>
+                        <th scope="col">Position</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <h5>{{details.name }}</h5>
+                        </td>
+                        <td>
+                            <p>{{details.alumni}}</p>
+                        </td>
+                        <td>
+                            <p>{{details.eboard}}</p>
+                        </td>
+                        <td>
+                            <h6>{{details.term }}</h6>
+                        </td>
+                        <td>
+                            <p>{{details.position}}</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <!-- end of it -->
+    {% endblock %}
+</main>

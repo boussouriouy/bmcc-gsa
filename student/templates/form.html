@@ -1,0 +1,30 @@
+{% extends 'gsabmcc/templates/base/base.html'%}
+<!-- This is for the title at the url -->
+{% block title %} profile page {% endblock%}
+<!-- This is where the content started -->
+
+<main>
+    {% block content %}
+    <!-- This is the bootstrap messge error -->
+    <section id="register" class="bg-light py-5">
+        {% include 'gsabmcc/templates/partial/_alert.html' %}
+        <div class="container-1">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="card">
+                        <div class="card-header bg-dark text-white">
+                            <h4 class="text-center">
+                                <i class="fas fa-user-plus"></i>Profile</h4>
+                        </div>
+                        <div class="card-body">
+                            <form action="." method="POST" enctype="multipart/form-data">{% csrf_token %} {{profile.as_p}}
+                                <input type="submit" value="Submit" class="btn btn-secondary btn-block">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endblock %}
+</main>

@@ -1,0 +1,12 @@
+{% extends 'admin/base.html' %}{% load static %}
+<!-- this is for cunstomzing the django admin nav bar that is why is colled brandin -->
+{% block branding %}
+<h1 id="head">
+    <img src="{% static 'images/gsa.png' %}" alt="GSA logo" height="40" width="80" class="brand-img">&nbsp; &nbsp;GSA Admin</h1>
+{% endblock %}
+
+<!-- this is for cunstomzing the django admin with our own css style that is why is colled extrastyle -->
+{% block extrastyle %}
+<link rel="stylesheet" href="{% static 'css/addmin.css' %}">
+<!-- This is the end of  -->
+{% endblock %}
